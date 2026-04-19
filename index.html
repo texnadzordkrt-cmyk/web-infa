@@ -286,20 +286,9 @@
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            opacity: 0.06;
+            opacity: 0.25;
             pointer-events: none;
             z-index: 0;
-            animation: logoBreathe 6s ease-in-out infinite;
-        }
-        @keyframes logoBreathe {
-            0%, 100% {
-                opacity: 0.05;
-                transform: translate(-50%, -50%) scale(1);
-            }
-            50% {
-                opacity: 0.08;
-                transform: translate(-50%, -50%) scale(1.03);
-            }
         }
         .main-container {
             max-width: 480px;
@@ -631,7 +620,7 @@
         .result-contact { font-size: var(--base-font-size-detail); color: var(--accent-cyan); display: flex; align-items: center; gap: 6px; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border-color); transition: font-size 0.3s ease; }
         .result-contact a { color: var(--accent-cyan); text-decoration: none; }
         .no-results { text-align: center; color: var(--text-muted); padding: 40px 20px; font-size: var(--base-font-size-no-results); background: var(--bg-card); border-radius: 16px; transition: font-size 0.3s ease; position: relative; z-index: 1; }
-        .notification { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--bg-card); color: var(--text-primary); padding: 14px 24px; border-radius: 12px; font-size: 14px; z-index: 2000; border: 1px solid var(--border-color); opacity: 0; transition: all 0.3s ease; }
+        .notification { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--bg-card); color: var(--text-primary); padding: 14px 24px; border-radius: 12px; font-size: 14px; z-index: 2000; border: 1px solid var(--border-color); opacity: : 0; transition: all 0.3s ease; }
         .notification.show { transform: translateX(-50%) translateY(0); opacity: 1; }
         .notification.success { border-color: var(--accent-cyan); box-shadow: 0 0 20px var(--accent-cyan-glow); }
         .notification.error { border-color: var(--error-red); box-shadow: 0 0 20px var(--error-red-glow); }
@@ -715,7 +704,7 @@
                     <h2 class="greeting">Инфа под рукой 2.0</h2>
                     <h3 class="greeting"><span id="username">доступ ⭐️⭐️⭐️</span></h3>
                 </div>
-                <button id="menu-btn" class="menu-btn">☰ Меню</button>
+                <button id="menu-btn" class="menu-btn">Меню</button>
             </div>
 
             <!-- Панель масштабирования над поиском -->
@@ -745,7 +734,7 @@
         <div id="drawer-menu-main" class="drawer-menu">
             <button id="drawer-refresh" class="drawer-item"><span class="item-icon">🌐</span><span>Обновить БД</span></button>
             <button id="drawer-error" class="drawer-item"><span class="item-icon">✍️</span><span>Написать об ошибке</span></button>
-            <button id="drawer-add-data" class="drawer-item"><span class="item-icon">📌</span><span>Добавить новые данные</span></button>
+            <button id="drawer-add-data" class="drawer-item"><span class="item-icon">📝</span><span>Добавить новые данные</span></button>
             <button id="drawer-logout" class="drawer-item"><span class="item-icon">🆔</span><span>Выход</span></button>
         </div>
         <!-- Подменю для добавления данных -->
