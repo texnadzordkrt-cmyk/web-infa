@@ -2011,15 +2011,28 @@
         });
     </script>
 
-    <!-- Service Worker registration for PWA -->
-    <script>
-        if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(reg => console.log('Service Worker registered:', reg))
-                    .catch(err => console.log('Service Worker registration failed:', err));
+   <!-- PWA Service Worker Registration -->
+<script>
+    (function() {
+        // Указываем имя вашей папки (репозитория)
+        const REPO_NAME = 'testSV';
+        
+        if ('serviceWorker' in navigator && location.protocol === 'https:') {
+            window.addEventListener('load', function() {
+                // Правильный путь — с именем папки
+                var swPath = '/' + REPO_NAME + '/sw.js';
+                console.log('Регистрация SW по пути:', swPath);
+                
+                navigator.serviceWorker.register(swPath)
+                    .then(function(reg) {
+                        console.log('✅ Service Worker зарегистрирован:', reg);
+                    })
+                    .catch(function(err) {
+                        console.error('❌ Ошибка регистрации SW:', err);
+                    });
             });
         }
-    </script>
+    })();
+</script>
 </body>
 </html>
