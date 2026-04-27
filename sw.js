@@ -1,4 +1,4 @@
-const CACHE_NAME = 'infa-pod-rukoi-v4';
+const CACHE_NAME = 'infa-pod-rukoi-v5';
 const urlsToCache = [
   '/',
   '/index.html',
