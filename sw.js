@@ -1,4 +1,4 @@
-const CACHE_NAME = 'infa-pod-rukoi-v3';  // Увеличил версию для принудительного обновления
+const CACHE_NAME = 'infa-pod-rukoi-v4';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -11,6 +11,7 @@ const urlsToCache = [
 ];
 
 self.addEventListener('install', event => {
+  console.log('[SW] Установка новой версии');
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => cache.addAll(urlsToCache))
@@ -36,19 +37,28 @@ self.addEventListener('fetch', event => {
 });
 
 self.addEventListener('activate', event => {
+  console.log('[SW] Активация новой версии');
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames.map(name => {
-          if (name !== CACHE_NAME) return caches.delete(name);
+          if (name !== CACHE_NAME) {
+            console.log('[SW] Удаляем старый кеш:', name);
+            return caches.delete(name);
+          }
         })
       );
     }).then(() => {
-      // Отправляем сообщение всем открытым вкладкам о новой версии
-      return self.clients.matchAll();
+      console.log('[SW] Отправляем сообщение о новой версии');
+      // Отправляем сообщение ВСЕМ открытым вкладкам
+      return self.clients.matchAll({ type: 'window', includeUncontrolled: true });
     }).then(clients => {
       clients.forEach(client => {
-        client.postMessage({ type: 'NEW_VERSION_AVAILABLE' });
+        client.postMessage({ 
+          type: 'NEW_VERSION_AVAILABLE',
+          version: CACHE_NAME,
+          timestamp: Date.now()
+        });
       });
       return self.clients.claim();
     })
