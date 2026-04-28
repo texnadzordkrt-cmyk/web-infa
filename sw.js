@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v5';
+const CACHE_VERSION = 'v6';
 const CACHE_NAME = `infa-cache-${CACHE_VERSION}`;
 
 // Исправленные пути с учётом подпапки testSV
