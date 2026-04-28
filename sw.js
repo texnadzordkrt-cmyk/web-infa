@@ -1,15 +1,15 @@
 const CACHE_VERSION = 'v5';
 const CACHE_NAME = `infa-cache-${CACHE_VERSION}`;
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/favicon-32x32.png',
-  '/favicon-16x16.png',
-  '/apple-touch-icon.png',
-  '/android-chrome-192x192.png',
-  '/android-chrome-512x512.png',
-  '/logo.png',
-  '/notification.mp3'
+  '/testSV/',
+  '/testSV/index.html',
+  '/testSV/favicon-32x32.png',
+  '/testSV/favicon-16x16.png',
+  '/testSV/apple-touch-icon.png',
+  '/testSV/android-chrome-192x192.png',
+  '/testSV/android-chrome-512x512.png',
+  '/testSV/logo.png'
+  '/testSV/notification.mp3'
 ];
 
 self.addEventListener('install', event => {
