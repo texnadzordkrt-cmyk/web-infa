@@ -1,7 +1,7 @@
 // Автоматическое определение базового пути
 
 const basePath = self.location.pathname.replace('sw.js', '');
-const CACHE_VERSION = 'v.2.4';  // Измените версию при обновлении
+const CACHE_VERSION = 'v.30.04';  // Измените версию при обновлении
 const CACHE_NAME = `infa-cache-${CACHE_VERSION}`;
 
 // Файлы для кеширования
